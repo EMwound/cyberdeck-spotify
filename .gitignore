@@ -1,0 +1,5 @@
+node_modules/
+run.log
+run.err.log
+config.json
+dist/

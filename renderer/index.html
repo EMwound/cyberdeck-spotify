@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>CYBERDECK_2077</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="bgwrap">
+  <div class="bg-layer" id="bgA"></div>
+  <div class="bg-layer" id="bgB"></div>
+</div>
+<div id="bgshade"></div>
+<canvas id="viz"></canvas>
+<div id="hud"></div>
+
+<header id="topbar">
+  <div class="brand"><span class="brand-mark">&#9698;&#9699;</span> CYBERDECK_2077 <span class="dim">// NIGHT CITY AUDIO LINK</span></div>
+  <div class="top-right">
+    <span id="status" class="status offline">&#9679; LINK OFFLINE</span>
+    <button class="winbtn wide hidden" id="btn-login">LOGIN</button>
+    <span id="clock" class="dim">00:00:00</span>
+    <button class="winbtn active" id="btn-pin" title="&#32622;&#39030;">&#8982;</button>
+    <button class="winbtn" id="btn-min" title="&#26368;&#23567;&#21270;">&#8212;</button>
+    <button class="winbtn danger" id="btn-close" title="&#38544;&#34255;&#21040;&#25176;&#30424;">&#215;</button>
+  </div>
+</header>
+
+<main id="stage">
+  <section id="left">
+    <div id="art-frame">
+      <img id="art" class="hidden" alt="">
+      <div id="idle">
+        <img src="../assets/emblem.png" id="emblem" alt="">
+        <div id="idle-text">AWAITING AUDIO STREAM</div>
+      </div>
+    </div>
+    <div id="track">
+      <div id="title" class="glitch" data-text="NO SIGNAL">NO SIGNAL</div>
+      <div id="artist" class="dim">&#8212; &#31561;&#24453; Spotify &#36830;&#25509; &#8212;</div>
+    </div>
+    <div id="progress-wrap">
+      <div id="progress-track"><div id="progress"></div></div>
+      <span id="time" class="dim">0:00 / 0:00</span>
+    </div>
+    <div id="controls">
+      <button id="btn-prev" title="&#19978;&#19968;&#26354;">&#9198;</button>
+      <button id="btn-play" title="&#25773;&#25918;/&#26242;&#20572;">&#9654;</button>
+      <button id="btn-next" title="&#19979;&#19968;&#26354;">&#9197;</button>
+      <input type="range" id="vol" min="0" max="100" value="80" title="&#38899;&#37327;">
+      <div id="modes">
+        <button class="mode active" data-mode="bars">BARS</button>
+        <button class="mode" data-mode="wave">WAVE</button>
+        <button class="mode" data-mode="ring">RING</button>
+      </div>
+    </div>
+    <div id="lyrics-focus">
+      <div id="lyrics-scroll"><div id="lyrics-pad"></div></div>
+      <button id="back-cur" class="hidden">&#22238;&#21040;&#24403;&#21069;</button>
+      <div id="lyric-offset">
+        <button id="off-earlier">&#21069; .5s</button>
+        <span id="off-val">0.0s</span>
+        <button id="off-later">&#21518; .5s</button>
+      </div>
+    </div>
+  </section>
+  <section id="lyrics-panel">
+    <div class="panel-title">FULL LYRICS // &#20840;&#37327;&#27468;&#35789;&#32034;&#24341;</div>
+    <div id="lyrics"><div class="line dim">// &#31561;&#24453;&#27468;&#35789;&#8230;</div></div>
+  </section>
+</main>
+
+<footer id="bottombar">
+  <span class="dim" id="source-hint">AUDIO SOURCE: SYSTEM LOOPBACK</span>
+  <span class="dim">SRC <button class="mode active" data-src="all">ALL</button> <button class="mode" data-src="spotify">SPOT</button></span>
+  <span class="dim">OPACITY <input type="range" id="opacity" min="40" max="100" value="96"></span>
+  <span class="dim" id="audio-status">AUDIO: INIT&#8230;</span>
+</footer>
+
+<div id="scanlines"></div>
+<div id="vignette"></div>
+
+<div id="setup" class="overlay hidden">
+  <div class="panel">
+    <h2>// SPOTIFY &#25509;&#20837;&#37197;&#32622;</h2>
+    <ol>
+      <li>&#25171;&#24320; <a href="#" id="dash-link">developer.spotify.com/dashboard</a> &#21019;&#24314; App</li>
+      <li>Redirect URI &#28155;&#21152;&#65306;<code>http://127.0.0.1:8901/callback</code> <button id="copy-redirect" class="winbtn wide">&#22797;&#21046;&#22320;&#22336;</button></li>
+      <li>&#21253;&#21547; Web API &#19982; Web Playback SDK &#26435;&#38480;&#65292;&#20445;&#23384;</li>
+      <li>&#31896;&#36148; Client ID&#65306;</li>
+    </ol>
+    <input id="client-id" placeholder="Spotify Client ID">
+    <div class="row">
+      <button id="save-cfg">&#20445;&#23384;&#24182;&#36830;&#25509;</button>
+      <button id="skip-cfg">&#26242;&#19981;&#37197;&#32622;&#65288;&#32431;&#21487;&#35270;&#21270;&#27169;&#24335;&#65289;</button>
+    </div>
+  </div>
+</div>
+
+<div id="boot">
+  <div>&#9626; CYBERDECK_2077 v1.0</div>
+  <div>&gt; &#21021;&#22987;&#21270;&#38899;&#39057;&#38142;&#36335; INIT AUDIO LINK&#8230;</div>
+  <div>&gt; &#25509;&#20837;&#22812;&#22478;&#32593;&#32476; NETRUNNER UPLINK&#8230;</div>
+  <div class="y">&gt; OK_</div>
+</div>
+
+<script src="visualizer.js"></script>
+<script src="lyrics.js"></script>
+<script src="spotify.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
+
+
+
+
